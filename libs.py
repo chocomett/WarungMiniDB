@@ -15,7 +15,11 @@ def menu():
         warung.start()
     else:
         print("pilihan tak tersedia")
-        exit()
+        exit_program()
+        
+def exit_program():
+    print("\nProgram dihentikan...\n")
+    exit()
 
 
 if __name__ == "__main__":

@@ -10,18 +10,36 @@ def add():
     db.insert_item(kodeBrg, namaBrg, hargaBrg, stokBrg)
     
 def check():
-    print("check")
-
+    items = db.fetch_item()
+    style = "============================"
+    for item in items:
+        #print(item)
+        
+        # Re-format data yang dimunculkan dari database
+        kodeBrg = item[1]
+        namaBrg = item[2]
+        hargaBrg = item[3]
+        stokBrg = item[4]
+        print(f"{style}\n\nKode Barang: {kodeBrg}\nNama Barang: {namaBrg}\nHarga Barang: Rp. {hargaBrg}\nStok Barang: {stokBrg}\n{style}")
+        
+def deleted():
+    db.delete_item()
+    
+    
 def start():
     while True:
-        menus = int(input("\n\nmenu pilihan:\n1. Tambah barang\n2. check barang\n3. kembali\n\nSilahkan pilih: "))
+        menus = int(input("\n\nmenu pilihan:\n1. Tambah Barang\n2. Cek Barang\n3. hapus Barang\n4. Menu\n5. Keluar Program\n\nSilahkan pilih: "))
         
         if menus == 1:
             add()
         elif menus == 2:
             check()
         elif menus == 3:
+            deleted()
+        elif menus == 4:
             libs.menu()
+        elif menus == 5:
+            libs.exit_program()
         else:
             break
 
