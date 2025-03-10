@@ -31,7 +31,12 @@ def start():
         menus = int(input("\n\nmenu pilihan:\n1. Tambah Barang\n2. Cek Barang\n3. hapus Barang\n4. Menu\n5. Keluar Program\n\nSilahkan pilih: "))
         
         if menus == 1:
-            add()
+            while True:
+                add()
+                inputAdd = input(f"Lanjut Input Barang lagi?: ")
+                inputAddKecil = inputAdd.lower()
+                if inputAdd == "n":
+                    break                    
         elif menus == 2:
             check()
         elif menus == 3:
